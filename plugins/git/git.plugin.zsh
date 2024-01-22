@@ -236,16 +236,7 @@ alias glol='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgre
 alias glo='git log --oneline --decorate'
 alias glog='git log --oneline --decorate --graph'
 alias gloga='git log --oneline --decorate --graph --all'
-
-# Pretty log messages
-function _git_log_prettily(){
-  if ! [ -z $1 ]; then
-    git log --pretty=$1
-  fi
-}
-compdef _git _git_log_prettily=git-log
-
-alias glp='_git_log_prettily'
+alias glp='git log --pretty="%ad %Cgreen#%h %Cred%aL %Creset- %s" --use-mailmap -i --date=format:"%d.%m.%Y %H:%M"'
 alias glg='git log --stat'
 alias glgp='git log --stat --patch'
 alias gignored='git ls-files -v | grep "^[[:lower:]]"'
