@@ -1,5 +1,7 @@
 # custom files
-custom/
+custom/*
+# but commit these files
+!custom/alias.zsh
 
 # temp files directories
 cache/
