@@ -19,8 +19,19 @@ function mn(){
 if [ ! -z "$1" ]
     then
         touch "$1".md
+        code "$_"
     else
-        touch $(date +%Y%m%d)_mom.md
+        FILENAME=$(date +%Y%m%d)_mom.md
+        # if file does not exist
+        if [ ! -f $FILENAME ]
+            then
+                # create the file
+                touch $FILENAME
+                # and prefill it with template
+                cat ~/.momTemplate/momTemplate.md >> $FILENAME
+        fi
+        code $FILENAME
 fi
-code "$_"
+
+[ ! -f makefile ] && cp ~/.momTemplate/makefile .
 }
