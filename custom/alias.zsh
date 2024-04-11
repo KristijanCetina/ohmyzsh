@@ -13,6 +13,18 @@ function mk(){
     cd "$1"
 }
 
+#create executable script
+function ms(){
+if [ ! -z "$1" ]
+    then
+        touch "$1".sh
+        chmod +x "$_"
+        code "$_"
+    else
+        echo "provide script name"
+fi
+}
+
 # Create and open an MD file with the provided filename
 # or date format if not provided
 function mn(){
